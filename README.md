@@ -1,7 +1,8 @@
-# TP part 01 - Docker
+I have changed the read.me
+<!-- # TP part 01 - Docker -->
 
-## Introduction
-L'objectif de ce TP est de prendre en main l'environnement Docker et plus si affinitée !
+<!-- ## Introduction -->
+<!-- L'objectif de ce TP est de prendre en main l'environnement Docker et plus si affinitée !
 
 Le but de ce TP est de créer trois conteneurs :
 
@@ -19,9 +20,9 @@ Les notions suivantes seront abordées :
 - Le mappage de volume pour bénéficier de la persistance
 - L'utilisation d'entrypoint (mis à disposition par l'image)
 - L'utilisation de docker-compose
-- La configuration très basique d'un reverse proxy
+- La configuration très basique d'un reverse proxy -->
 
-## Base de donnée 
+<!-- ## Base de donnée 
 
 ### Build de l'image
 
@@ -37,7 +38,7 @@ docker build -t database .
 
 ### Lancement d'un conteneur
 
-Ensuite on run / exécute notre image :
+Ensuite on run / exécute notre image : -->
 
 ```docker
 docker run --rm \
@@ -45,11 +46,11 @@ docker run --rm \
     --env-file .env \
     # -p 5432:5432 \  Facultatif -> Utile si on souhaite exposer la BDD, dans notre cas non --> seulement à d'autre conteneur présent sur la même machine --> la solution : utilisé le nom du contenur directement !
     --network=bridge-app-network \ 
-    database
+    <!-- database -->
 ```
-Il faut avoir au préalable crée le network -> ```docker network create app-network```
+<!-- Il faut avoir au préalable crée le network -> ```docker network create app-network``` -->
 
-Explication des paramètres :
+<!-- Explication des paramètres :
 * ```--rm``` : effectue un clean-up du container quand il est arrêté.
   * Càd : Docker supprime automatiquement le container (et tout ce qui est lié à celui-ci) quand il est arrêté et les volumes anonymes associés (équivalent de ```docker rm -v database```).
   * A noter : Pas utilisé en prod mais pratique pour tester/accomplir quelque chose dans un temps réduit -> tester, compiler une application au sein d'un conteneur, vérifier un bon fonctionnement et libérer de l'espace une fois fini.
@@ -58,10 +59,10 @@ Explication des paramètres :
 * ```-env-file``` : permet de spécifier le fichier qui contient les variables d'environnment.
   * A noter : on peut aussi spécifier directement des variables d'environement avec ```-e VAR1=TOTO``` (alias de ```-env```) mais cela devient fastidieux si l'on a beaucoup de variables d'environnement.
 * ```-p``` : permet de mapper un ou plusieurs port de la machine hôte avec le conteneur
-* ```-v``` : permet de mapper un ou plusieurs volume de la machine hôte avec le conteneur (pour bénéficier de données persistante -> la base de données ne sera pas vide à chaque redémarrage).
+* ```-v``` : permet de mapper un ou plusieurs volume de la machine hôte avec le conteneur (pour bénéficier de données persistante -> la base de données ne sera pas vide à chaque redémarrage). -->
 
 
-Ajouter adminer (facultatif) : 
+<!-- Ajouter adminer (facultatif) : 
 ```
 docker run --network=app-network --link database:db -p 8081:8080 adminer
 ```
@@ -69,17 +70,17 @@ docker run --network=app-network --link database:db -p 8081:8080 adminer
 
 ## Build de l'image
 
-On build notre image :
+On build notre image : -->
 
-```docker
+<!-- ```docker
 docker build -t backend .
 ```
 On lance le container:
 ```
 docker run --network=app-network -p 8080:8080 --name backend_app backend
-```
+``` -->
 
-## Reverse-Proxy
+<!-- ## Reverse-Proxy
 
 On fait exactement la même chose que pour les étapes d'avant on build et on run l'image.
 
@@ -92,6 +93,6 @@ Celui-ci est au format YAML.
 
 Pour créer et lancer les conteneurs : ```docker-compose up``` et ajouter ```-d``` pour lancer en arrière plan
 
-Pour arrêter et supprimer l'ensemble des éléments (volumes, netorks, containers, images) : ```docker-compose down```
+Pour arrêter et supprimer l'ensemble des éléments (volumes, netorks, containers, images) : ```docker-compose down``` -->
 
 
