@@ -33,6 +33,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+#    Job to login
       - name: Login to DockerHub
         run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.TOKEN }}
 
