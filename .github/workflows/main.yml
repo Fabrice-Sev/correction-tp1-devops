@@ -1,4 +1,4 @@
-name: CI devops 2022 EPF
+name: CI devops 2022 EPF test
 on:
   #to begin you want to launch this job in main and develop
   push:
